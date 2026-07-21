@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ИСПЫТАНИЕ</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #0a0a1a;
             font-family: 'Arial', sans-serif;
@@ -56,6 +52,14 @@
             text-align: center;
             font-weight: bold;
         }
+        .question-box img {
+            max-width: 100%;
+            max-height: 150px;
+            display: block;
+            margin: 8px auto;
+            border-radius: 8px;
+            border: 1px solid #3a5a7a;
+        }
         .answer-area {
             display: flex;
             flex-direction: column;
@@ -72,13 +76,8 @@
             outline: none;
             width: 100%;
         }
-        .answer-area input:focus {
-            border-color: #4a8aca;
-        }
-        .answer-area input:disabled {
-            background: #1a3a2a;
-            border-color: #3a7a4a;
-        }
+        .answer-area input:focus { border-color: #4a8aca; }
+        .answer-area input:disabled { background: #1a3a2a; border-color: #3a7a4a; }
         .btn-group {
             display: flex;
             gap: 10px;
@@ -97,32 +96,13 @@
             flex: 1;
             min-width: 100px;
         }
-        .btn-primary {
-            background: #4CAF50;
-            color: white;
-        }
-        .btn-primary:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-        .btn-primary:not(:disabled):hover {
-            background: #5dbf61;
-            transform: scale(1.02);
-        }
-        .btn-danger {
-            background: #D32F2F;
-            color: white;
-        }
-        .btn-danger:hover {
-            background: #e53935;
-        }
-        .btn-purple {
-            background: #9C27B0;
-            color: white;
-        }
-        .btn-purple:hover {
-            background: #ab47bc;
-        }
+        .btn-primary { background: #4CAF50; color: white; }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-primary:not(:disabled):hover { background: #5dbf61; transform: scale(1.02); }
+        .btn-danger { background: #D32F2F; color: white; }
+        .btn-danger:hover { background: #e53935; }
+        .btn-purple { background: #9C27B0; color: white; }
+        .btn-purple:hover { background: #ab47bc; }
         .btn-option {
             background: #2a3a5a;
             color: white;
@@ -133,21 +113,10 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .btn-option:hover {
-            background: #3a5a7a;
-        }
-        .btn-option:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-        .btn-option.correct {
-            background: #2e7d32;
-            border-color: #4caf50;
-        }
-        .btn-option.wrong {
-            background: #7a2a2a;
-            border-color: #d32f2f;
-        }
+        .btn-option:hover { background: #3a5a7a; }
+        .btn-option:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-option.correct { background: #2e7d32; border-color: #4caf50; }
+        .btn-option.wrong { background: #7a2a2a; border-color: #d32f2f; }
         .status-bar {
             display: flex;
             justify-content: space-between;
@@ -159,13 +128,8 @@
             flex-wrap: wrap;
             gap: 6px;
         }
-        .status-bar span {
-            color: #ffd866;
-        }
-        .timer {
-            color: #ffd866;
-            font-weight: bold;
-        }
+        .status-bar span { color: #ffd866; }
+        .timer { color: #ffd866; font-weight: bold; }
         .video-container {
             position: fixed;
             top: 0;
@@ -179,12 +143,7 @@
             z-index: 999;
             flex-direction: column;
         }
-        .video-container video {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 16px;
-            border: 3px solid #ffaa44;
-        }
+        .video-container video { max-width: 90%; max-height: 80%; border-radius: 16px; border: 3px solid #ffaa44; }
         .video-container .close-video {
             margin-top: 20px;
             padding: 12px 40px;
@@ -196,14 +155,8 @@
             font-weight: bold;
             cursor: pointer;
         }
-        .hidden {
-            display: none !important;
-        }
-        .phone-options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+        .hidden { display: none !important; }
+        .phone-options { display: flex; flex-direction: column; gap: 8px; }
         .color-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -218,13 +171,8 @@
             cursor: pointer;
             transition: 0.15s;
         }
-        .color-btn:hover {
-            transform: scale(1.05);
-        }
-        .color-btn.selected {
-            border-color: #ffd866;
-            box-shadow: 0 0 12px #ffd86666;
-        }
+        .color-btn:hover { transform: scale(1.05); }
+        .color-btn.selected { border-color: #ffd866; box-shadow: 0 0 12px #ffd86666; }
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -241,18 +189,9 @@
             cursor: pointer;
             transition: 0.15s;
         }
-        .calendar-grid button:hover {
-            background: #2a4a6a;
-        }
-        .calendar-grid button.selected {
-            background: #2e7d32;
-            border-color: #4caf50;
-        }
-        .calendar-grid button.empty {
-            background: transparent;
-            border: none;
-            cursor: default;
-        }
+        .calendar-grid button:hover { background: #2a4a6a; }
+        .calendar-grid button.selected { background: #2e7d32; border-color: #4caf50; }
+        .calendar-grid button.empty { background: transparent; border: none; cursor: default; }
         .calendar-nav {
             display: flex;
             justify-content: space-between;
@@ -268,11 +207,7 @@
             cursor: pointer;
             font-size: 14px;
         }
-        .calendar-nav span {
-            color: #c8e6ff;
-            font-weight: bold;
-            font-size: 16px;
-        }
+        .calendar-nav span { color: #c8e6ff; font-weight: bold; font-size: 16px; }
         .clickable-board {
             position: relative;
             width: 100%;
@@ -311,6 +246,50 @@
             text-shadow: 0 0 6px black;
             pointer-events: none;
         }
+        .stats-final {
+            background: #1a1a3a;
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid #3a5a7a;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .stats-final p {
+            color: #c8e6ff;
+            font-size: 14px;
+            margin: 4px 0;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: #0e1a2e;
+        }
+        .stats-final .gold { color: #ffd866; font-weight: bold; }
+        .btn-telegram {
+            background: #0088cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 8px;
+        }
+        .btn-telegram:hover { background: #0099dd; }
+        .btn-copy {
+            background: #4a4a6a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 6px;
+        }
+        .btn-copy:hover { background: #5a5a7a; }
         @media (max-width: 480px) {
             .game-container { padding: 12px; }
             .question-box { min-height: 100px; padding: 12px; }
@@ -323,14 +302,14 @@
 <body>
 
 <div class="game-container" id="app">
-    <div class="question-box">
+    <div class="question-box" id="questionBox">
         <h2 id="questionTitle">Вопрос №1</h2>
-        <p id="questionText">5 + 8 = ?</p>
+        <div id="questionContent">
+            <p id="questionText">5 + 8 = ?</p>
+        </div>
     </div>
 
-    <div class="answer-area" id="answerArea">
-        <!-- Динамически заполняется -->
-    </div>
+    <div class="answer-area" id="answerArea"></div>
 
     <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
         <button class="btn btn-primary" id="nextBtn" disabled>ДАЛЕЕ →</button>
@@ -355,7 +334,7 @@
 
 <script>
     // ============================================================
-    // 1. ДАННЫЕ ВОПРОСОВ (все 14 вопросов из твоей игры)
+    // 1. ДАННЫЕ ВОПРОСОВ
     // ============================================================
     const questions = [
         { type: 'simple', question: '5 + 8 = ?', answer: '13' },
@@ -366,10 +345,15 @@
             sub: [
                 { text: '14__', answer: '88', trigger: true },
                 { text: '6_', answer: '9' },
-                { text: '5_', answer: '7' }
+                { text: '5_', answer: '2' }  // ✅ ИСПРАВЛЕНО: 2 вместо 7
             ]
         },
-        { type: 'simple', question: 'Как называется этот динозавр?', answer: 'бронтозавр', image: 'dino.jpg' },
+        {
+            type: 'simple',
+            question: 'Как называется этот динозавр?',
+            answer: 'бронтозавр',
+            image: 'dino.jpg'  // ✅ ДОБАВЛЕНО: картинка будет показана
+        },
         { type: 'simple', question: 'Какой тег админа в ДиноФилософах?', answer: 'праваярука фишер' },
         {
             type: 'board',
@@ -424,13 +408,15 @@
     let videoPlayed = false;
     let timerSeconds = 0;
     let timerInterval = null;
-    let isLocked = false; // блокировка кнопок во время проверки
+    let isLocked = false;
+    let answersLog = [];
 
     // ============================================================
-    // 3. DOM-ЭЛЕМЕНТЫ
+    // 3. DOM
     // ============================================================
     const questionTitle = document.getElementById('questionTitle');
     const questionText = document.getElementById('questionText');
+    const questionContent = document.getElementById('questionContent');
     const answerArea = document.getElementById('answerArea');
     const nextBtn = document.getElementById('nextBtn');
     const skipBtn = document.getElementById('skipBtn');
@@ -458,10 +444,13 @@
     }
 
     function stopTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
+        if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+    }
+
+    function getTimeString() {
+        const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+        const s = String(timerSeconds % 60).padStart(2, '0');
+        return `${m}:${s}`;
     }
 
     // ============================================================
@@ -479,19 +468,90 @@
     }
 
     closeVideoBtn.addEventListener('click', hideVideo);
-
-    // Закрытие видео по клику вне видео
     videoContainer.addEventListener('click', (e) => {
         if (e.target === videoContainer) hideVideo();
     });
 
     // ============================================================
-    // 6. ОТРИСОВКА ВОПРОСОВ
+    // 6. СТАТИСТИКА (финальный экран)
+    // ============================================================
+    function showFinalStats() {
+        stopTimer();
+        const totalTime = getTimeString();
+        const totalDonat = donatCoins;
+
+        let html = `<div class="stats-final">`;
+        html += `<p style="color:#ffd866;font-size:18px;text-align:center;font-weight:bold;">📊 СТАТИСТИКА</p>`;
+        html += `<p>⏱️ Время: <span class="gold">${totalTime}</span></p>`;
+        html += `<p>💰 Донат-монет: <span class="gold">${totalDonat}</span></p>`;
+        html += `<p>📋 Вопросов пройдено: <span class="gold">${questions.length}</span></p>`;
+
+        // Лог ответов (время на каждый вопрос)
+        html += `<p style="margin-top:8px;font-size:13px;color:#8899aa;">📝 Детали:</p>`;
+        answersLog.forEach((log, idx) => {
+            const time = log.time || '—';
+            const donat = log.donat || 0;
+            html += `<p style="font-size:12px;color:#aaccff;">Вопрос ${idx+1}: ${donat > 0 ? '💎 '+donat+' монет' : '✅ без доната'} | ⏱️ ${time} сек</p>`;
+        });
+
+        // Кнопки для отправки статистики
+        html += `<button class="btn-telegram" id="sendTelegramBtn">📨 Отправить в Telegram</button>`;
+        html += `<button class="btn-copy" id="copyStatsBtn">📋 Копировать статистику</button>`;
+        html += `<button class="btn btn-primary" id="restartBtn" style="margin-top:8px;">🔄 Пройти заново</button>`;
+        html += `</div>`;
+
+        // Заменяем содержимое
+        document.querySelector('.game-container').innerHTML = html;
+
+        // Сохраняем данные для отправки
+        const statsText = `📊 СТАТИСТИКА ИСПЫТАНИЯ\n⏱️ Время: ${totalTime}\n💰 Донат-монет: ${totalDonat}\n📋 Вопросов: ${questions.length}\n\n${answersLog.map((l,i) => `Вопрос ${i+1}: ${l.donat > 0 ? '💎 '+l.donat+' монет' : '✅ без доната'} | ⏱️ ${l.time || '—'} сек`).join('\n')}`;
+
+        document.getElementById('copyStatsBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(statsText).then(() => {
+                alert('✅ Статистика скопирована в буфер обмена!');
+            }).catch(() => {
+                // fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = statsText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                textarea.remove();
+                alert('✅ Статистика скопирована!');
+            });
+        });
+
+        document.getElementById('sendTelegramBtn').addEventListener('click', () => {
+            const encoded = encodeURIComponent(statsText);
+            window.open(`https://t.me/share/url?url=&text=${encoded}`, '_blank');
+        });
+
+        document.getElementById('restartBtn').addEventListener('click', () => {
+            location.reload();
+        });
+    }
+
+    // ============================================================
+    // 7. ОТРИСОВКА ВОПРОСОВ
     // ============================================================
     function renderQuestion() {
         const q = questions[currentQ];
         questionTitle.textContent = `Вопрос №${currentQ + 1}`;
-        questionText.textContent = q.question || '';
+        questionContent.innerHTML = '';
+        const p = document.createElement('p');
+        p.id = 'questionText';
+        p.textContent = q.question || '';
+        questionContent.appendChild(p);
+
+        // Если есть картинка — показываем
+        if (q.image) {
+            const img = document.createElement('img');
+            img.src = q.image;
+            img.alt = q.question;
+            img.onerror = () => { img.style.display = 'none'; };
+            questionContent.appendChild(img);
+        }
+
         answerArea.innerHTML = '';
         nextBtn.disabled = true;
         isLocked = false;
@@ -506,7 +566,6 @@
         else if (q.type === 'color') renderColor(q);
     }
 
-    // --- Простой вопрос ---
     function renderSimple(q) {
         const input = document.createElement('input');
         input.type = 'text';
@@ -533,8 +592,9 @@
             input.disabled = true;
             input.style.borderColor = '#4caf50';
             nextBtn.disabled = false;
-            nextBtn.textContent = 'ДАЛЕЕ →';
-            // показываем зелёный статус
+            // Запоминаем время ответа
+            const elapsed = timerSeconds;
+            answersLog[currentQ] = { time: elapsed, donat: 0 };
         } else {
             input.value = '';
             input.style.borderColor = '#d32f2f';
@@ -542,7 +602,6 @@
         }
     }
 
-    // --- Тройной вопрос (с видео) ---
     function renderTriple(q) {
         const container = document.createElement('div');
         container.style.display = 'flex';
@@ -586,7 +645,6 @@
                     input.disabled = true;
                     input.style.borderColor = '#4caf50';
                     input.style.background = '#1a3a2a';
-                    // Проверяем триггер видео
                     if (input.dataset.trigger === 'true' && !videoPlayed) {
                         videoPlayed = true;
                         showVideo();
@@ -596,18 +654,17 @@
                         input.style.borderColor = '#2a5a7a';
                     }
                 }
-                // Проверяем все ли заполнены
                 const allDone = entries.every(e => e.disabled === true);
                 if (allDone) {
                     nextBtn.disabled = false;
+                    const elapsed = timerSeconds;
+                    answersLog[currentQ] = { time: elapsed, donat: 0 };
                 }
             });
         });
-
         answerArea.appendChild(container);
     }
 
-    // --- Шахматная доска (клик) ---
     function renderBoard(q) {
         const container = document.createElement('div');
         container.className = 'clickable-board';
@@ -615,76 +672,50 @@
         const img = document.createElement('img');
         img.src = q.boardImage || 'board.png';
         img.alt = 'Доска';
-        img.onerror = () => { img.alt = 'Доска не найдена'; };
+        img.onerror = () => { img.style.display = 'none'; };
         container.appendChild(img);
 
-        let marker = null;
-        let coords = null;
+        let marker = null, coords = null;
 
-        container.addEventListener('click', (e) => {
+        const handleClick = (clientX, clientY) => {
             const rect = container.getBoundingClientRect();
             const scaleX = container.offsetWidth / (img.naturalWidth || 400);
             const scaleY = container.offsetHeight / (img.naturalHeight || 400);
-            const x = (e.clientX - rect.left) / scaleX;
-            const y = (e.clientY - rect.top) / scaleY;
+            const x = (clientX - rect.left) / scaleX;
+            const y = (clientY - rect.top) / scaleY;
 
             if (marker) { marker.remove(); marker = null; }
             if (coords) { coords.remove(); coords = null; }
 
             marker = document.createElement('div');
             marker.className = 'marker';
-            marker.style.left = (e.clientX - rect.left) + 'px';
-            marker.style.top = (e.clientY - rect.top) + 'px';
+            marker.style.left = (clientX - rect.left) + 'px';
+            marker.style.top = (clientY - rect.top) + 'px';
             container.appendChild(marker);
 
             coords = document.createElement('div');
             coords.className = 'coords';
             coords.textContent = `(${Math.round(x)}, ${Math.round(y)})`;
-            coords.style.left = (e.clientX - rect.left + 30) + 'px';
-            coords.style.top = (e.clientY - rect.top - 10) + 'px';
+            coords.style.left = (clientX - rect.left + 30) + 'px';
+            coords.style.top = (clientY - rect.top - 10) + 'px';
             container.appendChild(coords);
 
             const dist = Math.hypot(x - q.correctX, y - q.correctY);
             if (dist <= q.tolerance) {
                 nextBtn.disabled = false;
-                // показываем зелёный статус
+                const elapsed = timerSeconds;
+                answersLog[currentQ] = { time: elapsed, donat: 0 };
             }
-        });
+        };
 
-        // Для мобильных касаний
+        container.addEventListener('click', (e) => handleClick(e.clientX, e.clientY));
         container.addEventListener('touchstart', (e) => {
             e.preventDefault();
             const touch = e.touches[0];
-            const rect = container.getBoundingClientRect();
-            const scaleX = container.offsetWidth / (img.naturalWidth || 400);
-            const scaleY = container.offsetHeight / (img.naturalHeight || 400);
-            const x = (touch.clientX - rect.left) / scaleX;
-            const y = (touch.clientY - rect.top) / scaleY;
-
-            if (marker) { marker.remove(); marker = null; }
-            if (coords) { coords.remove(); coords = null; }
-
-            marker = document.createElement('div');
-            marker.className = 'marker';
-            marker.style.left = (touch.clientX - rect.left) + 'px';
-            marker.style.top = (touch.clientY - rect.top) + 'px';
-            container.appendChild(marker);
-
-            coords = document.createElement('div');
-            coords.className = 'coords';
-            coords.textContent = `(${Math.round(x)}, ${Math.round(y)})`;
-            coords.style.left = (touch.clientX - rect.left + 30) + 'px';
-            coords.style.top = (touch.clientY - rect.top - 10) + 'px';
-            container.appendChild(coords);
-
-            const dist = Math.hypot(x - q.correctX, y - q.correctY);
-            if (dist <= q.tolerance) {
-                nextBtn.disabled = false;
-            }
+            handleClick(touch.clientX, touch.clientY);
         }, { passive: false });
 
         answerArea.appendChild(container);
-        answerArea.appendChild(document.createElement('br'));
         const hint = document.createElement('p');
         hint.style.color = '#8899aa';
         hint.style.fontSize = '13px';
@@ -693,7 +724,6 @@
         answerArea.appendChild(hint);
     }
 
-    // --- Телефонный вопрос ---
     function renderPhone(q) {
         const label = document.createElement('p');
         label.textContent = `Номер: ${q.phone}`;
@@ -713,9 +743,10 @@
                 if (btn.disabled) return;
                 if (opt === q.correct) {
                     btn.classList.add('correct');
-                    // Блокируем все кнопки
                     container.querySelectorAll('.btn-option').forEach(b => b.disabled = true);
                     nextBtn.disabled = false;
+                    const elapsed = timerSeconds;
+                    answersLog[currentQ] = { time: elapsed, donat: 0 };
                 } else {
                     btn.classList.add('wrong');
                     setTimeout(() => btn.classList.remove('wrong'), 400);
@@ -726,11 +757,8 @@
         answerArea.appendChild(container);
     }
 
-    // --- Календарь ---
     function renderCalendar(q) {
-        let year = 2026;
-        let month = 7;
-        let selectedDay = null;
+        let year = 2026, month = 7, selectedDay = null;
         const correctDate = q.correctDate;
 
         const container = document.createElement('div');
@@ -760,7 +788,6 @@
             const monthNames = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
             monthLabel.textContent = `${monthNames[month-1]} ${year}`;
 
-            // Заголовки дней недели
             ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].forEach(d => {
                 const cell = document.createElement('div');
                 cell.textContent = d;
@@ -771,7 +798,6 @@
                 grid.appendChild(cell);
             });
 
-            // Пустые ячейки до первого дня
             const startOffset = (firstDay === 0 ? 6 : firstDay - 1);
             for (let i = 0; i < startOffset; i++) {
                 const empty = document.createElement('button');
@@ -793,6 +819,8 @@
                     const dateStr = `${String(d).padStart(2,'0')}.${String(month).padStart(2,'0')}.${year}`;
                     if (dateStr === correctDate) {
                         nextBtn.disabled = false;
+                        const elapsed = timerSeconds;
+                        answersLog[currentQ] = { time: elapsed, donat: 0 };
                     }
                 });
                 grid.appendChild(btn);
@@ -814,7 +842,6 @@
         answerArea.appendChild(container);
     }
 
-    // --- Цвет ---
     function renderColor(q) {
         const colors = ['#000000','#808080','#C0C0C0','#FFFFFF','#FF0000','#FFA500',
                         '#FFFF00','#008000','#00FFFF','#0000FF','#800080','#FF00FF'];
@@ -831,6 +858,8 @@
                 btn.classList.add('selected');
                 if (c === q.correctColor) {
                     nextBtn.disabled = false;
+                    const elapsed = timerSeconds;
+                    answersLog[currentQ] = { time: elapsed, donat: 0 };
                 }
             });
             container.appendChild(btn);
@@ -839,7 +868,7 @@
     }
 
     // ============================================================
-    // 7. НАВИГАЦИЯ
+    // 8. НАВИГАЦИЯ
     // ============================================================
     function nextQuestion() {
         if (nextBtn.disabled) return;
@@ -847,53 +876,37 @@
         if (currentQ < totalQuestions) {
             renderQuestion();
         } else {
-            // Конец игры
-            questionTitle.textContent = '🎉 ПОЗДРАВЛЯЮ!';
-            questionText.textContent = 'Ты прошёл все испытания!';
-            answerArea.innerHTML = '';
-            nextBtn.disabled = true;
-            nextBtn.textContent = '🏁 ФИНИШ';
-            stopTimer();
+            showFinalStats();
         }
     }
 
     // ============================================================
-    // 8. ДОНАТ-СКИП
+    // 9. ДОНАТ-СКИП
     // ============================================================
     skipBtn.addEventListener('click', () => {
         if (confirm('Пропустить вопрос за 100 донат-монет?')) {
             donatCoins += 100;
             donatDisplay.textContent = donatCoins;
+            const elapsed = timerSeconds;
+            answersLog[currentQ] = { time: elapsed, donat: 100 };
             currentQ++;
             if (currentQ < totalQuestions) {
                 renderQuestion();
             } else {
-                questionTitle.textContent = '🎉 ПОЗДРАВЛЯЮ!';
-                questionText.textContent = 'Ты прошёл все испытания!';
-                answerArea.innerHTML = '';
-                nextBtn.disabled = true;
-                nextBtn.textContent = '🏁 ФИНИШ';
-                stopTimer();
+                showFinalStats();
             }
         }
     });
 
     // ============================================================
-    // 9. КНОПКА "ДАЛЕЕ"
-    // ============================================================
-    nextBtn.addEventListener('click', nextQuestion);
-
-    // ============================================================
     // 10. ЗАПУСК
     // ============================================================
+    nextBtn.addEventListener('click', nextQuestion);
     renderQuestion();
     startTimer();
 
-    // ============================================================
-    // 11. ОБРАБОТКА ОШИБОК (если видео не загружается)
-    // ============================================================
     scaryVideo.onerror = () => {
-        console.warn('Видео не загружено, но игра продолжается');
+        console.warn('Видео не загружено');
         hideVideo();
     };
 
